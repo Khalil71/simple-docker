@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  backend:
+    image: xara/backend
+  lb-backend:
+    image: dockercloud/haproxy
+    links:
+     - backend
+    ports:
+     - '90:80'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  frontend:
+    image: xara/frontend
+  lb-frontend:
+    image: dockercloud/haproxy
+    links:
+     - frontend
+    ports:
+     - '80:80'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
