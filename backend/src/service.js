@@ -7,7 +7,7 @@ GetData.prototype.findUser = function() {
     .then(function(res) {
       return res;
     })
-    .catch(function(e) {
+    .catch(function() {
       return { message: 'Cannot find user' };
     });
 };
@@ -23,7 +23,7 @@ GetData.prototype.createUser = function() {
     .then(function(res) {
       return res;
     })
-    .catch(function(e) {
+    .catch(function() {
       return { message: 'Cannot create user' };
     });
 };
